@@ -97,9 +97,9 @@ on how to use MAVProxy.''',
       install_requires=requirements,
       extras_require={
         'cesium': ['tornado'],
-        # restserver module
-        'server': ['flask'],
-        'recommended': ['flask', 'PyYAML', 'lxml', 'wxpython',
+        # restserver and bottleserver modules
+        'server': ['flask', 'bottle'],
+        'recommended': ['flask', 'bottle', 'PyYAML', 'lxml', 'wxpython',
                         'pymonocypher', 'openai', 'paho-mqtt',
                         'piexif', 'pynmea2', 'Pygame', 'Pillow']
       },
