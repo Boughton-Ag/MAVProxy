@@ -18,9 +18,14 @@ package_data = ['modules/mavproxy_map/data/*.jpg',
                 'modules/mavproxy_magical/data/*.obj',
                 'modules/mavproxy_fieldcheck/*.txt',
                 'tools/graphs/*.xml',
+                'modules/mavproxy_cropq/templates/*',
+                'modules/mavproxy_cropq/static/*',
+                'modules/mavproxy_cropq/static/leaflet/*',
+                'modules/mavproxy_cropq/static/leaflet/images/*'
 ]
 
 package_data.extend(package_files('MAVProxy/modules/mavproxy_cesium/app'))
+
 
 # note that we do not include all the real dependencies here (like matplotlib etc)
 # as that breaks the pip install. It seems that pip is not smart enough to
@@ -90,6 +95,7 @@ on how to use MAVProxy.''',
                 'MAVProxy.modules.mavproxy_nokov',
                 'MAVProxy.modules.mavproxy_SIYI',
                 'MAVProxy.modules.mavproxy_chat',
+                'MAVProxy.modules.mavproxy_cropq',
                 'MAVProxy.modules.lib',
                 'MAVProxy.modules.lib.ANUGA',
                 'MAVProxy.modules.lib.MacOS',
@@ -101,7 +107,7 @@ on how to use MAVProxy.''',
         'server': ['flask'],
         'recommended': ['flask', 'PyYAML', 'lxml', 'wxpython',
                         'pymonocypher', 'openai', 'paho-mqtt',
-                        'piexif', 'pynmea2', 'Pygame', 'Pillow']
+                        'piexif', 'pynmea2', 'Pygame', 'Pillow', 'requests']
       },
       scripts=['MAVProxy/mavproxy.py',
                'MAVProxy/tools/mavflightview.py',
