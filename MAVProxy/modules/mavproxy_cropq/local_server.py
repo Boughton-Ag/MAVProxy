@@ -135,6 +135,9 @@ class LocalServer():
     def request_mpstatus(self):
         return json.loads(self.remote_self.mpstatus_to_json(self.remote_self.mpstate.status))
 
+    def request_mode(self):
+        return {"mode": self.remote_self.mpstate.status.flightmode}
+
     def request_log(self):
         return render_template('log.html')
 
@@ -158,6 +161,7 @@ class LocalServer():
         self.app.add_url_rule('/dataset', view_func=self.request_dataset, methods=['GET'])
         self.app.add_url_rule('/heartbeats', view_func=self.request_heartbeats, methods=['GET'])
         self.app.add_url_rule('/mpstatus', view_func=self.request_mpstatus, methods=['GET'])
+        self.app.add_url_rule('/mode', view_func=self.request_mode, methods=['GET'])
         self.app.add_url_rule('/config', view_func=self.request_config, methods=['GET'])
         self.app.add_url_rule('/log', view_func=self.request_log, methods=['GET'])
         self.app.add_url_rule('/log_data', view_func=self.request_log_data, methods=['GET'])

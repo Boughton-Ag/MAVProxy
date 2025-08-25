@@ -4,7 +4,8 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light flex-column align-items-start">
+    <span id="flightMode" class="navbar-text mb-2"></span>
     <form class="form-inline" action="/command" method="post">
         <input class="form-control mr-sm-2" type="text" placeholder="Command" aria-label="Command" name="command" id="command" value="command">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
@@ -29,6 +30,7 @@
 
 <script type="text/javascript" charset="utf-8">
     updateConsole();
+    updateMode();
 
     function updateConsole() {
         getData('/console_data').then((data) => {
@@ -54,6 +56,15 @@
             }
             setTimeout(() => {
                 updateConsole()
+            }, 1000)
+        })
+    }
+
+    function updateMode() {
+        getData('/mode').then((data) => {
+            document.getElementById("flightMode").innerHTML = data["mode"];
+            setTimeout(() => {
+                updateMode()
             }, 1000)
         })
     }
