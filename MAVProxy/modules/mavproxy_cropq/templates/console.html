@@ -38,6 +38,18 @@
                 var row = table.insertRow(0);
                 let cell1 = row.insertCell(0);
                 let cell2 = row.insertCell(1);
+
+                function toCssColor(col) {
+                    if (Array.isArray(col)) {
+                        return `rgb(${col[0]}, ${col[1]}, ${col[2]})`;
+                    }
+                    return col;
+                }
+
+                row.style.backgroundColor = toCssColor(line['bg']);
+                row.style.color = toCssColor(line['fg']);
+
+                cell1.innerHTML = line['time'];
                 cell2.innerHTML = line['text'];
             }
             setTimeout(() => {
